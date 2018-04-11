@@ -7,6 +7,13 @@
 //
 
 import Foundation
+import CoreLocation
 
-print("Hello, World!")
+let rl = RunLoop.main
+let ws = WeatherLookupService.init(runloop: rl)
+let ls = LocationService(delegate: ws)
+rl.run(mode: .defaultRunLoopMode, before: .init(timeIntervalSinceNow: 5))
+
+
+
 
